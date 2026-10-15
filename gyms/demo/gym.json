@@ -1,0 +1,18 @@
+{
+  "name": "Pulse Fitness",
+  "tagline": "Estrutura completa, equipamentos de ponta e um ambiente feito para você evoluir.",
+  "theme": { "accent": "#d8ff3e", "ground": "#0c0c0d", "ink": "#f4f4f1" },
+  "seo": {
+    "title": "Pulse Fitness | Academia em Cidade-UF",
+    "description": "Conheça a estrutura, os equipamentos e o espaço da Pulse Fitness. Agende sua aula experimental pelo WhatsApp."
+  },
+  "hero": {
+    "poster": "media/hero-poster.webp",
+    "alt": "Interior da Pulse Fitness com equipamentos de musculação"
+  },
+  "contact": {
+    "whatsapp": "5511999999999",
+    "whatsappMessage": "Olá! Vim pelo site da Pulse Fitness e gostaria de agendar uma aula experimental.",
+    "instagram": "https://instagram.com/"
+  }
+}

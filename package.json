@@ -1,0 +1,29 @@
+{
+  "name": "site-academias",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:gym": "vite --mode",
+    "build": "tsc -b && vite build",
+    "build:gym": "tsc -b && vite build --mode",
+    "preview:gym": "vite preview --mode",
+    "new-gym": "node scripts/new-gym.mjs",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

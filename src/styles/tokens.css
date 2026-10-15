@@ -1,0 +1,17 @@
+:root {
+  /* --color-ground, --color-ink, --color-accent e --color-accent-ink vêm de
+     gyms/<academia>/gym.json e são injetadas no <head> por vite.config.ts. */
+  --color-ground-raised: color-mix(in srgb, var(--color-ink) 5%, var(--color-ground));
+  --color-placeholder: color-mix(in srgb, var(--color-ink) 11%, var(--color-ground));
+
+  --font-sans: 'Archivo Variable', 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --size-display: clamp(3.25rem, 13.2vw, 16rem);
+  --size-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --size-body: 1rem;
+
+  --gutter: clamp(16px, 3vw, 32px);
+  --header-height: 72px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Ellus Academia",
+  "tagline": "Treino de perto, no seu ritmo.",
+  "theme": { "accent": "#96ac62", "ground": "#0b0d0a", "ink": "#f3f3ee" },
+  "seo": {
+    "title": "Ellus Academia | Treino acompanhado de perto em Mairinque-SP",
+    "description": "Ellus Academia, em Mairinque-SP: musculação e treinos personalizados com acompanhamento de perto. Conheça o espaço e fale pelo WhatsApp."
+  },
+  "brand": { "logo": "brand/logo.png", "logoAspect": 0.96, "favicon": "favicon.png" },
+  "hero": {
+    "poster": "media/hero-poster.webp",
+    "videoWebm": "media/hero-academia.webm",
+    "videoMp4": "media/hero-academia.mp4",
+    "alt": "Vídeo do interior da Ellus Academia, com máquinas de musculação vermelhas e luz entrando pelas janelas"
+  },
+  "contact": {
+    "whatsapp": "5511951857532",
+    "instagram": "https://instagram.com/ellus.academia"
+  }
+}
