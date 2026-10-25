@@ -10,7 +10,7 @@
 
 Sem `content.ts`, a página usa os textos neutros de `src/content/default.ts`.
 Para personalizar, copie esse arquivo para `gyms/<nome>/content.ts` e troque o import do tipo
-para `import type { SiteContent } from '../../src/content/types';` (veja `gyms/ellus/content.ts`).
+para `import type { SiteContent } from '../../src/content/types';` (veja `gyms/arven/content.ts`).
 
 Fotos (WebP, ~1600 px de largura) usadas pelos textos padrão. O que faltar vira um espaço "Foto em breve":
 

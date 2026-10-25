@@ -1,0 +1,14 @@
+{
+  "name": "Arven Academia",
+  "theme": { "accent": "#c2d94c", "ground": "#0b0d0a", "ink": "#f3f3ee" },
+  "seo": {
+    "title": "Arven Academia | Treino acompanhado de perto",
+    "description": "Musculação com professor no salão, treino montado para a sua rotina e planos para começar. Agende uma visita à Arven Academia pelo WhatsApp.",
+    "siteUrl": "",
+    "image": "images/equipamentos-musculacao.webp"
+  },
+  "brand": { "logo": "brand/logo.svg", "logoAspect": 1, "favicon": "favicon.svg" },
+  "contact": {
+    "whatsapp": "5511900000000"
+  }
+}

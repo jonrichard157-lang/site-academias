@@ -3,16 +3,16 @@
 Landing page de conversão para academias, em React + TypeScript + Vite. Um único código,
 uma pasta de identidade e conteúdo por academia em `gyms/`.
 
-A academia de exemplo é a **Ellus Academia** (`gyms/ellus`), uma marca fictícia usada como
-template comercial demonstrativo da VeyzaTech. Endereço, planos, valores e depoimentos dela são exemplos.
+A academia de exemplo é a **Arven Academia** (`gyms/arven`), uma marca fictícia usada como
+template comercial demonstrativo da VeyzaTech. Nome, logotipo, WhatsApp, endereço, planos, valores e depoimentos dela são exemplos.
 
 ## Comandos
 
 | O que fazer | Comando |
 |---|---|
-| Rodar a Ellus em desenvolvimento | `npm run dev:gym -- ellus` |
-| Gerar o site da Ellus | `npm run build:gym -- ellus` (saída em `dist/ellus`) |
-| Ver o site gerado | `npm run preview:gym -- ellus` |
+| Rodar a Arven em desenvolvimento | `npm run dev:gym -- arven` |
+| Gerar o site da Arven | `npm run build:gym -- arven` (saída em `dist/arven`) |
+| Ver o site gerado | `npm run preview:gym -- arven` |
 | Rodar o modelo neutro | `npm run dev` |
 | Criar uma academia nova | `npm run new-gym -- nome-da-academia` |
 | Lint | `npm run lint` |
@@ -59,8 +59,9 @@ Nos títulos, `*palavra*` vira o destaque em itálico verde.
 ## Antes do deploy (checklist)
 
 1. **WhatsApp** — `contact.whatsapp` em `gym.json` com DDI + DDD + número, só dígitos (ex.: `5511999999999`).
+   A Arven usa o número fictício `5511900000000`: troque pelo real antes de publicar.
    Sem esse campo, todos os botões de WhatsApp e o formulário somem.
-2. **Domínio** — preencha `seo.siteUrl` (ex.: `https://ellusacademia.com.br`). Com ele o build gera
+2. **Domínio** — preencha `seo.siteUrl` (ex.: `https://arvenacademia.com.br`). Com ele o build gera
    `canonical`, `og:url`, `og:image` absoluto, `sitemap.xml` e a linha `Sitemap:` no `robots.txt`.
 3. **SEO** — revise `seo.title` (até ~60 caracteres) e `seo.description` (até ~155).
    `seo.image` é a imagem de compartilhamento (ideal 1200×630).
@@ -68,20 +69,19 @@ Nos títulos, `*palavra*` vira o destaque em itálico verde.
    `testimonials` (ou substitua por depoimentos reais autorizados) e esvazie `footer.disclaimer`.
 5. **Fotos** — substitua as imagens ilustrativas por fotos reais (ver abaixo).
 6. **Instagram** — `contact.instagram` (opcional).
-7. **Vercel** — `vercel.json` já gera a Ellus (`npm run build:gym -- ellus`, saída `dist/ellus`).
+7. **Vercel** — `vercel.json` já gera a Arven (`npm run build:gym -- arven`, saída `dist/arven`).
    Para outra academia, troque o nome nos dois campos.
 8. **Analytics (opcional)** — adicione o snippet do GTM no `index.html` e crie um gatilho para o evento `cta_click`.
 
-### Sobre as fotos da Ellus
+### Sobre as fotos da Arven
 
-As fotos em `gyms/ellus/public/images` são as imagens ilustrativas do modelo (ambientes sem pessoas).
+As fotos em `gyms/arven/public/images` são as imagens ilustrativas do modelo (ambientes sem pessoas).
 Para a versão final, recomenda-se incluir fotos reais com pessoas treinando, mantendo os mesmos nomes
-de arquivo (WebP, ~1600 px de largura). Os arquivos de vídeo em `gyms/ellus/public/media` não são
-usados pela página atual e podem ser apagados para deixar o deploy mais leve.
+de arquivo (WebP, ~1600 px de largura).
 
 ## Qualidade verificada
 
-- `tsc -b` e `oxlint` sem erros; build da Ellus e do modelo neutro.
+- `tsc -b` e `oxlint` sem erros; build da Arven e do modelo neutro.
 - Sem rolagem horizontal de 320 px a 1440 px.
 - axe-core (WCAG 2 A/AA + boas práticas) sem violações no desktop e no celular.
 - Teclado: link "Pular para o conteúdo", foco visível, menu fecha com Esc, FAQ com `<details>` nativo,

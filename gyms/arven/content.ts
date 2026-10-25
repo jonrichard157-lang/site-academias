@@ -1,9 +1,9 @@
 import type { SiteContent } from '../../src/content/types';
 
-// Ellus Academia é uma marca fictícia: esta página é um template demonstrativo da VeyzaTech.
+// Arven Academia é uma marca fictícia: esta página é um template demonstrativo da VeyzaTech.
 // Planos, valores, endereço e depoimentos abaixo são exemplos e devem ser trocados pelos reais.
 
-const VISIT = 'Olá! Vim pelo site da Ellus Academia e gostaria de agendar uma visita para conhecer o espaço.';
+const VISIT = 'Olá! Vim pelo site da Arven Academia e gostaria de agendar uma visita para conhecer o espaço.';
 
 export const content = {
   nav: [
@@ -15,18 +15,18 @@ export const content = {
   header: { cta: { label: 'Agendar visita', message: VISIT } },
   float: {
     label: 'Falar no WhatsApp',
-    message: 'Olá! Vim pelo site da Ellus Academia e gostaria de mais informações.',
+    message: 'Olá! Vim pelo site da Arven Academia e gostaria de mais informações.',
   },
 
   hero: {
-    eyebrow: 'Musculação e treino acompanhado · Mairinque-SP',
+    eyebrow: 'Musculação e treino acompanhado',
     title: 'Treino de perto, no *seu ritmo.*',
     lead: 'Uma academia com professor no salão, treino montado para a sua rotina e espaço para você evoluir sem pressa e sem fila.',
     primary: { label: 'Agendar uma visita', message: VISIT },
     secondary: { label: 'Ver planos', href: '#planos' },
     image: {
       file: 'equipamentos-musculacao.webp',
-      alt: 'Salão de musculação da Ellus Academia com duas fileiras de máquinas e luz de destaque nas paredes',
+      alt: 'Salão de musculação da Arven Academia com duas fileiras de máquinas e luz de destaque nas paredes',
       objectPosition: '50% 55%',
     },
     facts: [
@@ -119,7 +119,7 @@ export const content = {
         features: ['Acesso livre à academia', 'Avaliação inicial', 'Treino individual'],
         cta: {
           label: 'Quero o Mensal',
-          message: 'Olá! Vim pelo site da Ellus Academia e quero saber mais sobre o plano Mensal.',
+          message: 'Olá! Vim pelo site da Arven Academia e quero saber mais sobre o plano Mensal.',
         },
       },
       {
@@ -133,7 +133,7 @@ export const content = {
         featured: true,
         cta: {
           label: 'Quero o Trimestral',
-          message: 'Olá! Vim pelo site da Ellus Academia e quero saber mais sobre o plano Trimestral.',
+          message: 'Olá! Vim pelo site da Arven Academia e quero saber mais sobre o plano Trimestral.',
         },
       },
       {
@@ -145,7 +145,7 @@ export const content = {
         features: ['Tudo do Trimestral', 'Reavaliações trimestrais', 'Congelamento de até 30 dias'],
         cta: {
           label: 'Quero o Anual',
-          message: 'Olá! Vim pelo site da Ellus Academia e quero saber mais sobre o plano Anual.',
+          message: 'Olá! Vim pelo site da Arven Academia e quero saber mais sobre o plano Anual.',
         },
       },
     ],
@@ -156,7 +156,7 @@ export const content = {
     title: 'Pequenos detalhes, *todo dia*',
     image: {
       file: 'ambiente-interno-03.webp',
-      alt: 'Recepção da Ellus Academia com balcão iluminado, poltronas e plantas',
+      alt: 'Recepção da Arven Academia com balcão iluminado, poltronas e plantas',
       objectPosition: '40% 50%',
     },
     items: [
@@ -234,13 +234,13 @@ export const content = {
     more: {
       prompt: 'Ficou alguma dúvida?',
       label: 'Pergunte pelo WhatsApp',
-      message: 'Olá! Vim pelo site da Ellus Academia e tenho uma dúvida:',
+      message: 'Olá! Vim pelo site da Arven Academia e tenho uma dúvida:',
     },
   },
 
   contact: {
     eyebrow: 'Agende sua visita',
-    title: 'Venha *conhecer* a Ellus',
+    title: 'Venha *conhecer* a Arven',
     intro: 'Escolha o melhor horário e fale com a gente. Mostramos o espaço, apresentamos os professores e montamos com você o primeiro passo.',
     image: {
       file: 'ambiente-interno.webp',
@@ -258,13 +258,13 @@ export const content = {
   },
 
   footer: {
-    address: ['Rua Ilustrativa, 100 · Centro', 'Mairinque-SP'],
+    address: ['Rua Ilustrativa, 100 · Centro', 'Sua Cidade-UF'],
     hours: [
       { days: 'Segunda a sexta', time: '6h às 22h' },
       { days: 'Sábado', time: '8h às 14h' },
       { days: 'Domingo e feriados', time: '8h às 12h' },
     ],
-    disclaimer: 'Ellus Academia é uma marca fictícia. Endereço, planos, valores e depoimentos são exemplos.',
+    disclaimer: 'Arven Academia é uma marca fictícia. Endereço, planos, valores e depoimentos são exemplos.',
     credit: 'Template demonstrativo desenvolvido pela VeyzaTech.',
   },
 } satisfies SiteContent;
