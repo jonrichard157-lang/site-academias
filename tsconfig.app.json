@@ -7,7 +7,7 @@
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
     "resolveJsonModule": true,
-    "paths": { "@gym": ["./gyms/demo/gym.json"] },
+    "paths": { "@gym": ["./gyms/demo/gym.json"], "@content": ["./src/content/default.ts"] },
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -24,5 +24,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "gyms/*/content.ts"]
 }

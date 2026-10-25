@@ -1,0 +1,70 @@
+.heading {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eyebrow-color, var(--color-muted));
+}
+
+.index {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--eyebrow-accent, var(--color-accent));
+  font-weight: 700;
+}
+
+.index::after {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.title {
+  max-width: 14ch;
+  font-size: var(--size-h2);
+  font-weight: 800;
+  font-stretch: 68%;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.title em {
+  font-size: 1.06em;
+  line-height: 0.8;
+  color: var(--title-accent, var(--color-accent));
+}
+
+.intro {
+  max-width: 46ch;
+  font-size: var(--size-lead);
+  line-height: 1.45;
+  color: var(--intro-color, var(--color-muted));
+}
+
+@media (min-width: 960px) {
+  .split {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    column-gap: var(--gutter);
+    align-items: end;
+  }
+
+  .split .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .split .intro {
+    padding-bottom: 0.4rem;
+  }
+}

@@ -1,25 +1,30 @@
-import { GYM, WHATSAPP_URL } from '../config/gym';
+import { CONTENT, GYM, whatsappUrl } from '../config/gym';
+import { useNoneVisible } from '../hooks/useNoneVisible';
+import { trackCta } from '../lib/links';
+import { WhatsAppIcon } from './Icons';
 import styles from './WhatsAppFloat.module.css';
 
-/** Botão flutuante de WhatsApp, fixo no canto da tela. Some se a academia não tiver `contact.whatsapp`. */
+const SECTIONS_WITH_CTA = ['topo', 'planos', 'contato'] as const;
+
+/** Botão flutuante de WhatsApp. Fica escondido enquanto o topo, os planos ou o contato estão na tela. */
 export function WhatsAppFloat() {
-  if (!WHATSAPP_URL) return null;
+  const show = useNoneVisible(SECTIONS_WITH_CTA);
+  const href = whatsappUrl(CONTENT.float.message);
+  if (!href) return null;
   return (
     <a
-      className={styles.float}
-      href={WHATSAPP_URL}
+      className={`${styles.float} ${show ? styles.visible : ''}`}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Conversar com a ${GYM.name} no WhatsApp`}
+      aria-label={`${CONTENT.float.label} com a ${GYM.name} (abre em nova aba)`}
+      aria-hidden={show ? undefined : true}
+      tabIndex={show ? undefined : -1}
+      data-cta="flutuante"
+      onClick={() => trackCta('flutuante')}
     >
-      <svg className={styles.icon} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <path
-          fill="currentColor"
-          d="M16.004 3C8.82 3 3 8.82 3 16c0 2.293.6 4.533 1.74 6.507L3 29l6.66-1.707A12.94 12.94 0 0 0 16.004 29C23.18 29 29 23.18 29 16S23.18 3 16.004 3Zm0 23.6c-1.98 0-3.92-.533-5.613-1.54l-.4-.24-3.953 1.013 1.053-3.853-.26-.4A10.56 10.56 0 0 1 5.4 16c0-5.847 4.76-10.6 10.604-10.6 5.84 0 10.596 4.753 10.596 10.6 0 5.847-4.756 10.6-10.596 10.6Zm5.813-7.94c-.32-.16-1.88-.927-2.173-1.033-.293-.107-.507-.16-.72.16-.213.32-.827 1.033-1.013 1.247-.187.213-.373.24-.693.08-.32-.16-1.347-.497-2.567-1.587-.947-.847-1.587-1.893-1.773-2.213-.187-.32-.02-.493.14-.653.144-.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.623-.524-.54-.72-.55l-.613-.01c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.46 4.827.763.33 1.36.527 1.823.673.767.244 1.464.21 2.016.127.615-.092 1.88-.768 2.147-1.51.267-.74.267-1.375.187-1.508-.08-.133-.293-.213-.613-.373Z"
-        />
-      </svg>
-      <span className={styles.label}>Fale no WhatsApp</span>
+      <WhatsAppIcon className={styles.icon} />
+      <span className={styles.label}>{CONTENT.float.label}</span>
     </a>
   );
 }
-
