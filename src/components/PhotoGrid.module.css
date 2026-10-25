@@ -1,17 +1,30 @@
 .grid {
   display: grid;
-  gap: var(--gutter);
-  grid-template-columns: 1fr;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .cell {
   aspect-ratio: var(--aspect);
+  min-width: 0;
   min-height: 0;
 }
 
-@media (min-width: 900px) {
+/* No celular: a primeira foto ocupa a largura toda, as outras se alternam em duas colunas. */
+.cell[data-area='a'],
+.cell[data-area='d'] {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 960px) {
   .grid {
-    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: clamp(220px, 22vw, 340px) clamp(220px, 22vw, 340px) clamp(200px, 19vw, 300px);
+    grid-template-areas:
+      'a a a a a a a a b b b b'
+      'a a a a a a a a b b b b'
+      'c c c c d d d d d d d d';
   }
 
   .cell {
@@ -32,20 +45,5 @@
 
   .cell[data-area='d'] {
     grid-area: d;
-  }
-
-  .equipment {
-    grid-template-rows: repeat(2, clamp(180px, 20vw, 330px)) clamp(220px, 26vw, 420px);
-    grid-template-areas:
-      'a a a a a a a a b b b b'
-      'a a a a a a a a b b b b'
-      'c c c c d d d d d d d d';
-  }
-
-  .space {
-    grid-template-rows: clamp(220px, 30vw, 500px) clamp(200px, 22vw, 360px);
-    grid-template-areas:
-      'a a a a a a a a a a a a'
-      'b b b b b b c c c c c c';
   }
 }

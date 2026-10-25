@@ -2,53 +2,190 @@
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: var(--header-height);
-  padding: 0 var(--gutter);
-  transition: background-color 200ms ease;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease;
+  border-bottom: 1px solid transparent;
 }
 
 .solid {
-  background: var(--color-ground);
+  background: color-mix(in srgb, var(--color-ground) 94%, transparent);
+  border-bottom-color: var(--color-line);
+  backdrop-filter: blur(10px);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: var(--max-width);
+  height: var(--header-height);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 .brand {
   display: inline-flex;
-  text-decoration: none;
   align-items: center;
+  gap: 0.7rem;
+  min-height: 44px;
+  text-decoration: none;
 }
 
 .brand img {
   display: block;
-  height: 54px;
+  height: 36px;
   width: auto;
 }
 
 .wordmark {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  font-stretch: 75%;
-  letter-spacing: -0.02em;
+  font-stretch: 70%;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  display: none;
 }
 
+.links {
+  display: flex;
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+}
 
 .link {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
-  transition: background-size 200ms var(--ease-out);
+  background: linear-gradient(var(--color-accent), var(--color-accent)) left 75% / 0 2px no-repeat;
+  transition: background-size 220ms var(--ease-out);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta {
+  min-height: 42px;
+  padding: 0 1.1rem;
+  font-size: 0.875rem;
+}
+
+.toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  background: transparent;
+  cursor: pointer;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 200ms var(--ease-out), opacity 150ms ease;
+}
+
+.burger {
+  position: relative;
+}
+
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.burger::before {
+  top: -6px;
+}
+
+.burger::after {
+  top: 6px;
+}
+
+.toggle[aria-expanded='true'] .burger {
+  background: transparent;
+}
+
+.toggle[aria-expanded='true'] .burger::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.toggle[aria-expanded='true'] .burger::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.panel {
+  display: grid;
+  gap: 1.5rem;
+  height: calc(100svh - var(--header-height));
+  padding: 1.5rem var(--gutter) max(1.5rem, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  align-content: space-between;
+  background: var(--color-ground);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panelLink {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-line);
+  font-size: clamp(2rem, 10vw, 3rem);
+  font-weight: 800;
+  font-stretch: 68%;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.panelIndex {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-stretch: 100%;
+  color: var(--color-accent);
+}
+
+.panelCta {
+  width: 100%;
+}
+
+@media (max-width: 420px) {
+  .cta {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .nav {
+    display: block;
+  }
+
+  .toggle,
+  .panel {
+    display: none;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -57,15 +194,12 @@
   }
 }
 
-@media (max-width: 639px) {
-  .link {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .header,
-  .link {
+  .link,
+  .burger,
+  .burger::before,
+  .burger::after {
     transition: none;
   }
 }

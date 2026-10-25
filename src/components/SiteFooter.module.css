@@ -1,0 +1,104 @@
+.footer {
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-line);
+  font-size: var(--size-small);
+}
+
+.grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.brand {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-stretch: 68%;
+  text-transform: uppercase;
+}
+
+.col {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.col ul,
+.col address {
+  display: grid;
+  gap: 0.35rem;
+  font-style: normal;
+  color: var(--color-muted);
+}
+
+.col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.social {
+  text-decoration: underline !important;
+  text-underline-offset: 0.3em;
+}
+
+.hour {
+  display: grid;
+}
+
+.hour span:last-child {
+  color: var(--color-ink);
+}
+
+.legal {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .col a:hover {
+    color: var(--color-ink);
+  }
+}
+
+@media (min-width: 960px) {
+  .footer {
+    padding-bottom: 2.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+
+  .brand {
+    grid-column: auto;
+    align-items: flex-start;
+  }
+
+  .legal {
+    grid-template-columns: 1fr auto;
+  }
+}

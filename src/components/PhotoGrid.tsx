@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ImageSlot } from '../data/images';
+import type { GallerySlot } from '../content/types';
 import { resolveImage } from '../lib/images';
 import { Lightbox } from './Lightbox';
 import type { LightboxPhoto } from './Lightbox';
@@ -7,31 +7,32 @@ import { MediaFrame } from './MediaFrame';
 import styles from './PhotoGrid.module.css';
 
 interface PhotoGridProps {
-  readonly slots: readonly ImageSlot[];
-  readonly layout: 'equipment' | 'space';
+  readonly slots: readonly GallerySlot[];
 }
 
 interface ResolvedSlot {
-  readonly slot: ImageSlot;
+  readonly slot: GallerySlot;
   readonly src: string | null;
 }
 
-export function PhotoGrid({ slots, layout }: PhotoGridProps) {
+export function PhotoGrid({ slots }: PhotoGridProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const resolved: readonly ResolvedSlot[] = slots.map((slot) => ({ slot, src: resolveImage(slot.file) }));
   const photos: LightboxPhoto[] = resolved.flatMap(({ slot, src }) =>
-    src ? [{ src, alt: slot.alt, caption: slot.caption }] : [],
+    src ? [{ src, alt: slot.alt }] : [],
   );
 
-  let photoIndex = -1;
+  // Posição de cada foto na galeria ampliada (os espaços sem foto ficam de fora).
+  const photoIndexes = resolved.map(({ src }, position) =>
+    src ? resolved.slice(0, position).filter((item) => item.src).length : -1,
+  );
 
   return (
     <>
-      <div className={`${styles.grid} ${styles[layout]}`}>
-        {resolved.map(({ slot, src }) => {
-          if (src) photoIndex += 1;
-          const index = photoIndex;
+      <div className={styles.grid}>
+        {resolved.map(({ slot, src }, position) => {
+          const index = photoIndexes[position];
           return (
             <div
               key={slot.file}
